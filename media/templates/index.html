@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Rjz Server</title>
+	<link href="/media/css/style.css" rel="stylesheet" type="text/css">
+	<meta name='viewport' content='width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=1;'/>
+</head>
+<body>
+<div>
+	<h1>Rjz Server</h1>
+</div>
+
+	
+	% for r in rjzs:
+		<p><a href='rjdj://${headers['HOST']}/${r}' class='action'>Install ${r} for RjDj</a></p>
+		<p><a href='rjvy://${headers['HOST']}/${r}' class='action'>Install ${r} for Rj Voyager</a></p>
+	% endfor
+	
+	</div>
+	<div>
+        	<h2>Instructions</h2>
+        <ul>
+            <li><p><strong>Start Rjzserver on your computer</strong>. Rjzserver creates a small website on your computer that you can reach from your iThing to install scenes.</p></li>
+
+            <li><p>In the <strong>File -> Set scene directory</strong> you can point Rjzserver to where you keep your scenes. Point it to a directory that contains scene folders with the .rj file name extension.</p></li> 
+
+            <li><p>To install scenes, you browse to this page with Safari on your iThing by putting 'http://${headers['HOST']}/' into the address bar of Safari on your device.</p></li>
+
+        </li>
+            <li> <p>Tap the install button on a scene, and RjDj will open and download the scene from your computer.</p></li>
+        </ul>
+
+<h2>Rjz files</h2>
+    <p>If you just want the rjz-files, you can get them here:</p>
+% for r in rjzs:
+	<p><a href='${r}'>Download: ${r}</a>
+	    </p>
+% endfor
+
+
+    <small>By <a href='mailto:chrism@rjdj.me'>Chris McCormick</a></small>
+	<small>This software is GPLv3.</small>
+    </div>
+</body>
+</html>
+
+
+
