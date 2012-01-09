@@ -1,3 +1,10 @@
 .DS_Store
 mako
 rjzserver.app
+.installed.cfg
+*.egg
+bin/
+parts/
+*.egg-info
+develop-eggs
+*.pyc

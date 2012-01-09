@@ -88,7 +88,6 @@ class RjzHandler(BaseHTTPRequestHandler):
         elif urlpath.startswith("/media"):
             # really insecure mini media server
             diskfile = MEDIA_DIR + sep.join(urlpath[len("/media"):].split("/"))
-            print "diskfile", diskfile
             if path.isfile(diskfile):
                 types = {"jpeg": "jpeg", "jpg": "jpeg", "gif": "gif", "png": "png"}
                 for t in types:
@@ -119,7 +118,6 @@ class RjzHandler(BaseHTTPRequestHandler):
             rjzs = [d + (d[-3:] == ".rj" and "z" or "") for d in listdir(config.Get("scenedir", default=".")) if d[-3:] == ".rj" or d[-4:] == ".rjz"]
 
             tpl_file = path.join(TEMPLATE_DIR, "index.html")
-            print "tpl_file", tpl_file
             tpl = Template(file(tpl_file).read()).render(rjzs=rjzs, headers=self.headers, listen=self.server.listen)
             self.wfile.write(tpl)
             return

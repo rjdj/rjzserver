@@ -1,0 +1,5 @@
+CHANGELOG
+=========
+
+ - added normalize.css and Twitter's bootstrap.css for nice styling
+
