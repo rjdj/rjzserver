@@ -8,6 +8,7 @@ This is not a very secure server, so don't run it on public facing networks. Int
 
 ## Dependencies:
 
+  - Python 2.7
   - wxPython >= 2.9.1.1
   - py2app
   - setuptools
