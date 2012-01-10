@@ -1,6 +1,7 @@
-# RjzServer
+# RJZ Server
 
 **by Chris McCormick <chris@mccormick.cx>**
+**updated for Reality Jockey Ltd. by Christian Haudum <christian.h@rjdj.me>**
 
 GPLv3 licensed. See the file COPYING for details.
 
