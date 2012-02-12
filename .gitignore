@@ -5,6 +5,7 @@ rjzserver.app
 *.egg
 bin/
 parts/
+build/
 *.egg-info
 develop-eggs
 *.pyc
