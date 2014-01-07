@@ -52,8 +52,8 @@ def gui():
     threadSrv.start()
 
     # run the app loop in this thread
-    gui.MainLoop()
-    exit(0)
+    while True:
+        gui.MainLoop()
 
 if __name__ == '__main__':
     gui()

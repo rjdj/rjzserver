@@ -25,39 +25,45 @@ plist = dict(
     CFBundleShortVersionString = APP_VERSION,
 )
 
-requirements = ['py2app',
-                'mako',
-                'wxPython',
-                ]
+requirements = [
+    'altgraph',
+    'mako',
+    'py2app==0.7.3',
+    'wxPython',
+]
 
-OPTIONS = dict(plist=plist,
-               iconfile=os.path.join("src","resources","RjzServer.icns"),
-               argv_emulation=1,
-               includes=['mako.cache',],
-               resources=[os.path.join("src","resources","templates"),
-                          os.path.join("src","resources","media"),
-                          ],
-    )
+OPTIONS = dict(
+    plist = plist,
+    iconfile = os.path.join("src","resources","RjzServer.icns"),
+    argv_emulation = 1,
+    includes = ['mako.cache',],
+    resources = [
+        os.path.join("src","resources","templates"),
+        os.path.join("src","resources","media"),
+    ],
+)
 
 setup(name = "RJZServer",
       app = [os.path.join("src","application.py"),],
       data_files = [],
       options = dict(py2app=OPTIONS),
       version = APP_VERSION,
-      author = 'Reality Jockey Limited',
+      author = 'Reality Jockey Ltd.',
       author_email = 'info@rjdj.me',
       description = 'RJZ Server',
       url = 'http://rjdj.me',
       packages = find_packages('src'),
       package_dir = {'':'src'},
       setup_requires = requirements,
-      install_requires = requirements + ['distribute',],
+      install_requires = requirements + [
+          'setuptools>=0.7',
+      ],
       entry_points = {
-          'console_scripts':[
+          'console_scripts': [
 	      'server=application:run',
               'gui=application:gui',
 	  ],
-          },
+      },
       include_package_data = True,
       zip_safe = False,
 )
