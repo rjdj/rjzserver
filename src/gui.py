@@ -73,6 +73,7 @@ class MainWindow(wx.Frame):
         # message events from outside the app
         EVT_RESULT(self, self.OnExtMsg)
 
+        self.Bind(wx.EVT_CLOSE, self.OnExit)
         self.Show(True)
 
     def OnSetDir(self, e):
@@ -99,7 +100,13 @@ class MainWindow(wx.Frame):
         webbrowser.open("http://more.rjdj.me/RjzServer/")
 
     def OnExit(self, e):
-        self.Close(True)  # Close the frame.
+        dlg = wx.MessageDialog(self,
+             "Do you really want to close this application?",
+             "Confirm Exit", wx.OK|wx.CANCEL|wx.ICON_QUESTION)
+        result = dlg.ShowModal()
+        dlg.Destroy()
+        if result == wx.ID_OK:
+            self.Destroy()
 
     def OnExtMsg(self, event):
         if self.firstpost:
@@ -108,6 +115,7 @@ class MainWindow(wx.Frame):
         self.txt.AppendText(event.data)
 
 class RjzGUI(wx.PySimpleApp):
+
     def OnInit(self):
         self.frame = MainWindow(None, -1, "RjDj RjzServer")
         return True
